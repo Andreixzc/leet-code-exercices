@@ -13,11 +13,11 @@ import javax.swing.RowFilter.Entry;
 
 public class Main {
     public static void main(String[] args) {
-        int[] vet = {100, 4, 200, 1, 3, 2};
+        // int[] vet = {100, 4, 200, 1, 3, 2};
+        int[] vet = { 2, 2, 1, 1, 1, 2, 5, 5, 8, 9 };
         topKFrequent(vet, 2);
-        System.out.println(longestConsecutive(vet));
-    }
 
+    }
 
     public static boolean containsDuplicate(int[] nums) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
@@ -46,7 +46,6 @@ public class Main {
 
         }
     }
-
 
     public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
@@ -88,7 +87,6 @@ public class Main {
         }
         return new ArrayList<>(hashMap.values());
 
-
     }
 
     public static int[] topKFrequent(int[] nums, int k) {
@@ -102,19 +100,16 @@ public class Main {
                 hashMap.put(nums[i], hashMap.get(nums[i]) + 1);
             }
         }
-        // array de map? onde cada index seria supostamente um map??
+
+        System.out.println(hashMap.entrySet());
         List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(hashMap.entrySet());
-        // instanciando comparator modificado para ordenar as chaves de acordo com seus respectivos
-        // valores
-        Comparator<Map.Entry<Integer, Integer>> comparator =
-                (entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue());
+        Comparator<Map.Entry<Integer, Integer>> comparator = (entry1, entry2) -> entry2.getValue()
+                .compareTo(entry1.getValue());
         Collections.sort(entryList, comparator);
         for (int i = 0; i < k; i++) {
             retorno[i] = entryList.get(i).getKey();
         }
         return retorno;
-
-
 
     }
 
@@ -125,7 +120,6 @@ public class Main {
     // pre[0] = nums[0];
     // pos[pos.length - 1] = nums[pos.length - 1];
     // for (int i = 0; i < nums.length; i++) {
-
 
     // }
 
@@ -140,7 +134,7 @@ public class Main {
             heap.add(nums[i]);
         }
         Integer current = heap.poll();
-        int currentLen = 1; // Inicialize a contagem atual de sequência
+        int currentLen = 1;
 
         while (!heap.isEmpty()) {
             Integer currentNext = heap.poll();
@@ -150,11 +144,7 @@ public class Main {
             } else if (currentNext != current) {
                 currentLen = 1;
             }
-
-            // Atualize o valor de 'current'
             current = currentNext;
-
-            // Atualize 'len' com o máximo entre 'len' e 'currentLen'
             len = Math.max(len, currentLen);
         }
 
