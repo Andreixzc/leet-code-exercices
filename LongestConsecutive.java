@@ -1,32 +1,38 @@
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class LongestConsecutive {
     public static void main(String[] args) {
-        
+        int vet[] = {100, 4, 200, 1, 3, 2};
+        System.out.println(longestConsecutive(vet));
     }
-     public static int longestConsecutive(int[] nums) {
-        int len = 0;
-        if (nums.length == 1) {
-            return 1;
-        }
-        PriorityQueue<Integer> heap = new PriorityQueue<>();
+
+    public static int longestConsecutive(int[] nums) {
+        int count = 0;
+        int current;
+        int highest = 0;
+        int prev;
+        TreeSet<Integer> set = new TreeSet<Integer>();
         for (int i = 0; i < nums.length; i++) {
-            heap.add(nums[i]);
+            set.add(nums[i]);
         }
-        Integer current = heap.poll();
-        int currentLen = 1;
+        prev = set.pollFirst();
+        while (!set.isEmpty()) {
+            current = set.pollFirst();
+            if (current - prev == 1) {
+                count++;
+                highest = Math.max(highest, count);
+            } else {
+                count = 0;
 
-        while (!heap.isEmpty()) {
-            Integer currentNext = heap.poll();
-            if (currentNext - 1 == current) {
-                currentLen++;
-            } else if (currentNext != current) {
-                currentLen = 1;
             }
-            current = currentNext;
-            len = Math.max(len, currentLen);
-        }
+            prev = current;
 
-        return len;
+        }
+        return highest+1;
+
+
     }
 }
