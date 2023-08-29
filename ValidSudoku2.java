@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class ValidSudoku2 {
     public static void main(String[] args) {
         char[][] sudokuBoard = {
-                { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                { '5', '5', '.', '.', '7', '.', '.', '.', '.' },
                 { '6', '.', '.', '1', '9', '5', '.', '.', '.' },
                 { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
                 { '8', '.', '.', '.', '6', '.', '.', '.', '3' },
@@ -15,18 +15,46 @@ public class ValidSudoku2 {
                 { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
                 { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
         };
-        isValidSudoku(sudokuBoard);
+        System.out.println(isValidSudoku(sudokuBoard));
     }
 
     public static boolean isValidSudoku(char[][] board) {
         for (int i = 0; i < 9; i++) {
-            if (!verificaSubMatriz(board, i)) {
+            if (!verificaLinha(board, i) || !verificaColuna(board, i) || !verificaSubMatriz(board, i)) {
                 return false;
             }
         }
         return true;
     }
-
+    
+    public static boolean verificaLinha(char[][] board, int row) {
+        HashSet<Character> set = new HashSet<>();
+        for (int j = 0; j < 9; j++) {
+            if (board[row][j] != '.') {
+                if (set.contains(board[row][j])) {
+                    return false;
+                } else {
+                    set.add(board[row][j]);
+                }
+            }
+        }
+        return true;
+    }
+    
+    public static boolean verificaColuna(char[][] board, int col) {
+        HashSet<Character> set = new HashSet<>();
+        for (int i = 0; i < 9; i++) {
+            if (board[i][col] != '.') {
+                if (set.contains(board[i][col])) {
+                    return false;
+                } else {
+                    set.add(board[i][col]);
+                }
+            }
+        }
+        return true;
+    }
+    
     public static boolean verificaSubMatriz(char[][] board, int subMatrizNumber) {
         int subMatrizRow = (subMatrizNumber / 3) * 3;
         int subMatrizCol = (subMatrizNumber % 3) * 3;
@@ -44,4 +72,6 @@ public class ValidSudoku2 {
         }
         return true;
     }
+    
+
 }
