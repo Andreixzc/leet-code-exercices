@@ -20,22 +20,28 @@ public class ValidSudoku2 {
 
     public static boolean isValidSudoku(char[][] board) {
         for (int i = 0; i < 9; i++) {
-            verificaSubMatriz(board, i);
-            System.out.println("-----------");
+            if (!verificaSubMatriz(board, i)) {
+                return false;
+            }
         }
         return true;
     }
+
     public static boolean verificaSubMatriz(char[][] board, int subMatrizNumber) {
         int subMatrizRow = (subMatrizNumber / 3) * 3;
         int subMatrizCol = (subMatrizNumber % 3) * 3;
-    
+        HashSet<Character> set = new HashSet<>();
         for (int i = subMatrizRow; i < subMatrizRow + 3; i++) {
             for (int j = subMatrizCol; j < subMatrizCol + 3; j++) {
-                System.out.print(board[i][j] + " ");
+                if (board[i][j] != '.') {
+                    if (set.contains(board[i][j])) {
+                        return false;
+                    } else {
+                        set.add(board[i][j]);
+                    }
+                }
             }
-            System.out.println();
         }
-    
-        return false;
+        return true;
     }
 }
