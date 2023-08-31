@@ -1,3 +1,4 @@
+package ArraysAndHashing;
 public class MaxProfit {
     public static void main(String[] args) {
         int vet[] = {7, 1, 5, 3, 6, 4};

@@ -1,8 +1,7 @@
-import java.util.Arrays;
-import java.util.HashMap;
+package ArraysAndHashing;
 import java.util.HashSet;
 
-public class ValidSudoku2 {
+public class ValidSudoku {
     public static void main(String[] args) {
         char[][] sudokuBoard = {
                 { '5', '5', '.', '.', '7', '.', '.', '.', '.' },

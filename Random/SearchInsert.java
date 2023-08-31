@@ -1,3 +1,4 @@
+package Random;
 public class SearchInsert {
     public static void main(String[] args) {
         int vet[] = { 2, 6, 7, 9, 10 };

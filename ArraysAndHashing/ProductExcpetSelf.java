@@ -1,3 +1,4 @@
+package ArraysAndHashing;
 import java.util.Arrays;
 
 public class ProductExcpetSelf {

@@ -1,3 +1,4 @@
+package Random;
 import java.util.Arrays;
 
 public class RemoveElement {

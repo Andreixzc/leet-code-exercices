@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.PriorityQueue;
-import java.util.SortedSet;
+package ArraysAndHashing;
 import java.util.TreeSet;
 
 public class LongestConsecutive {
