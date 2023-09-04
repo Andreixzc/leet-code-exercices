@@ -1,12 +1,5 @@
 package Random;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 public class ContainsDuplicateII {
     public static void main(String[] args) {
         int[] vet = { 1, 2, 3, 1, 2, 3 };
@@ -23,7 +16,6 @@ public class ContainsDuplicateII {
             hashMap.put(nums[i], i);
         }
         return false;
-    
     
     }
     
