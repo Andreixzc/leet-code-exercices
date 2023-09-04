@@ -10,12 +10,9 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 public class ContainsDuplicateII {
     public static void main(String[] args) {
         int[] vet = { 1, 2, 3, 1, 2, 3 };
-        // System.out.println(containsNearbyDuplicate2(vet, 2));
-        System.out.println(Math.abs(-12));
     }
 
-    public static boolean containsNearbyDuplicate2(int[] nums, int k) {
-    
+    public static boolean containsNearbyDuplicate(int[] nums, int k) {
         HashMap<Integer,Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (hashMap.containsKey(nums[i])) {
