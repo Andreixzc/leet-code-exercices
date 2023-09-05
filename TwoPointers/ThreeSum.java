@@ -2,46 +2,19 @@ package TwoPointers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
 public class ThreeSum {
     public static void main(String[] args) {
-        int[] numeros = {1, 2, 3, 4, 5};
-        System.out.println(binarySearch(numeros, 0, numeros.length - 1, 1));
+        int[] numeros = { 1, 2, 3, 4, 5 };
+        threeSum(numeros);
 
     }
-
-    public static List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> output = new ArrayList<>();
-        HashSet<Integer[]> set = new HashSet<>();
-        Arrays.sort(nums);
-        int sum = 0;
-        int discardIndex = nums[0] - 1;
-        int complemento;
-        int j = nums.length - 1;
-        for (int i = 0; i < nums.length; i++) {
-            sum = nums[i] + nums[j];
-            if (sum == 0) {
-                complemento = 0;
-            } else if (sum > 0) {
-                complemento = sum * -1;
-            } else {
-                complemento = sum * -1;
-            }
-            // fazer busca binaria?
-            // adicionar um valor a pos do vetor para ignorar na busca?
-            // i = 0, j = i + 1? Calcular complemento e jogar na busca binaria. Se retornar um
-            // indice valido, adiciono
-            // vet[i], vet[j] vet[binary] ao set. Se a busca binaria nao encontrar eu incremento o j
-        }
-
-        return output;
-    }
-
-    public static int binarySearch(int[] vet, int left, int right, int target) {
+    public static int binarySearch(int[] vet, int left, int right, int target, int flag) {
         if (left > right) {
-            return -1;
+            return flag;
         }
         int mid = left + (right - left) / 2;
         if (vet[mid] == target) {
@@ -49,12 +22,39 @@ public class ThreeSum {
         }
 
         if (vet[mid] < target) {
-            return binarySearch(vet, mid + 1, right, target);
+            return binarySearch(vet, mid + 1, right, target, flag);
         } else {
-            return binarySearch(vet, left, mid - 1, target);
+            return binarySearch(vet, left, mid - 1, target, flag);
         }
-
 
     }
 
+    public static List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> output = new ArrayList<>();
+        HashSet<Integer[]> hash = new HashSet<>();
+        Arrays.sort(nums);
+        int flag = nums[0] - 1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] != nums[j]) {
+                    int complemento = (nums[i] + nums[j]) * -1;
+                    int found = binarySearch(nums, 0, nums.length - 1, complemento, flag);
+                    if (found != flag) {
+                        Integer[] insert = new Integer[3];
+                        insert[0] = nums[i];
+                        insert[1] = nums[j];
+                        insert[2] = found;
+                        if (!hash.contains(insert)) {
+                            hash.add(insert);
+                        }
+
+                    }
+
+                }
+            }
+        }
+        System.out.println(hash.toString());
+        return output;
+
+    }
 }
