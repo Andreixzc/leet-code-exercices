@@ -24,6 +24,23 @@ public class RemoveDuplicates {
         }
         return k;
     }
+
+    
+    public static int removeDuplicates2(int[] nums) {
+        int k = 1;
+        int count = 0;
+        for (int i = 1; i < nums.length; i++) {
+            
+            while (nums[i] == nums[k-1]) {
+                count++;
+                k++;
+            }
+            k = i;
+            nums[i+1] = nums[k+1];
+
+        }
+        return count;
+    }
     
 
 }
