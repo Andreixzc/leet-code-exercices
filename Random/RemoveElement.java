@@ -1,21 +1,22 @@
 package Random;
+
 import java.util.Arrays;
 
 public class RemoveElement {
     public static void main(String[] args) {
-        int vet[] = { 1,1,1,5,1,5,1 };
-        removeElement(vet, 5);
-        System.out.println(Arrays.toString(vet));
+        int vet[] = { 0, 1, 2, 2, 3, 0, 4 };
+        System.out.println(removeElement(vet, 2));
     }
 
     public static int removeElement(int[] nums, int val) {
         int k = 0;
+      
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != val) {
-                nums[k] = nums[i];
                 k++;
-
+                nums[i] = nums[k];
             }
+            
         }
         return k;
     }
