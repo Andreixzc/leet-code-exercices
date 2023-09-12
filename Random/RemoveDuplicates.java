@@ -20,7 +20,6 @@ public class RemoveDuplicates {
         System.out.println(Arrays.toString(nums));
         return k;
     }
-<<<<<<< HEAD
 
     
     public static int removeDuplicates2(int[] nums) {
@@ -39,7 +38,5 @@ public class RemoveDuplicates {
         return count;
     }
     
-=======
->>>>>>> 2d149e0d1de2a0f10f2cccba5573ac8b1b0722d2
 
 }
