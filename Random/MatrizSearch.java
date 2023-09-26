@@ -6,7 +6,9 @@ public class MatrizSearch {
         // System.out.println(searchMatrix(matriz, 9));
         int[][] matriz = new int[3][3];
         fill(matriz);
-        searchMatrix(matriz, 2);
+        // searchMatrix(matriz, 2);
+        int totalIndexes = matriz.length * matriz.length;
+        System.out.println(matriz[totalIndexes/2][totalIndexes/2]);
     }
 
 
