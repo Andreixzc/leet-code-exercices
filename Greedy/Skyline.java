@@ -10,7 +10,6 @@ public class Skyline {
         System.out.println(maxIncreaseKeepingSkyline(matrizQuadrada));
 
     }
-
     public static int maxIncreaseKeepingSkyline(int[][] grid) {
         int numRows = grid.length;
         int numCols = grid[0].length;
