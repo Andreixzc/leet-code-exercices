@@ -1,0 +1,10 @@
+Acho que eu estou começando a entender.
+
+Primeiramente, se o valor de I(item) ou J(capacidade) for 0, colocamos o valor 0 na matriz[i][j],pois isso significa que
+não se é possivel adicionar o item pois ocorre a violação de capacidade.
+
+Caso pularmos essa condição, significa que teoricamente é possivel incluir o item atual na mochila, pois o limite da 
+capacidade é respeitado.
+Porém, para incluir o item devemos verificar primeiro se é possivel incluir o item atual juntamente com o anterior.
+Para fazermos isso, pegamos o maior valor entre incluir o item, e não incluir. Porém, devemos verificar se ao incluir o item,
+a restrição de capacidade é respeitada. Se não for, pegamos o maior valor, que seria a nossa 'melhor' resposta, até então.
