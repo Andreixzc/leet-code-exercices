@@ -1,0 +1,7 @@
+- inicializar uma matriz de N linhas (preços) e 2 colunas.
+
+Cada coluna representa uma opção:
+     Primeiro coluna: Comprar a acao no dia x, e calcular o seu lucro como sendo
+     o maximo do valor da ação do dia anterior 
+
+     Segunda coluna:
