@@ -1,42 +1,38 @@
 package DynamicProgramming;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class CanSum {
     public static void main(String[] args) {
-        int[] arr1 = {2, 3};
-        int target1 = 7;
-        System.out.println(canSum(arr1, target1));
+        int[] arr1 = {7, 14};
+        int target1 = 300;
+        System.out.println(canSumDp(arr1, target1));
     }
 
-    public static boolean canSum(int[] vet, int target) {
-        Boolean[] memo = new Boolean[target + 1];
-        Arrays.fill(memo, null);
-        return canSum(vet, target, memo);
+    public static boolean canSumDp(int[] vet, int target) {
+        HashMap<Integer, Boolean> hash = new HashMap<>();
+        return canSumDp(vet, target, hash);
     }
 
-    public static boolean canSum(int[] vet, int target, Boolean[] memo) {
-        if (target < 0) {
-            return false;
+    public static boolean canSumDp(int[] vet, int target, HashMap<Integer, Boolean> hash) {
+        if (hash.containsKey(target)) {
+            return hash.get(target);
         }
-
-        if (memo[target] != null) {
-            return memo[target];
-        }
-
         if (target == 0) {
             return true;
         }
-
+        if (target < 0) {
+            return false;
+        }
         for (int i = 0; i < vet.length; i++) {
-            int remainder = target - vet[i];
-            if (canSum(vet, remainder, memo)) {
-                // memo[target] = true;
+            int resto = target - vet[i];
+            if (canSumDp(vet, resto, hash)) {
                 return true;
             }
         }
-
-        memo[target] = false;//chegar aqui, significa que iteramos sobre todo o vetor
+        hash.put(target, false);
         return false;
     }
+
 }
