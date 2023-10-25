@@ -25,11 +25,8 @@ public class DpNewSack {
 
 
                     int incluir = valores[i-1] + dpMat[(i - 1)][j - pesos[i - 1]];
-
                      /*inha int incluir = valores[i-1] + dpMat[(i - 1)][j - pesos[i - 1]]; significa qual seria o meu valor final, 
                      ao incluir o item atual juntamente com o ultimo valor encontrado em que esse meu valor atual respeita a capacidade */   
-                    
-                    
                      // Considerar a inclusao do item atual, que seria o valor do item atual + o
                     // ultimo melhor valor que ainda se é possivel adiciona-lo respeitando a
                     // capacidade
