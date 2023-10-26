@@ -1,4 +1,4 @@
-package DynamicPrograming;
+package DynamicProgramming;
 
 public class LargestCommonSeq {
     public static void main(String[] args) {

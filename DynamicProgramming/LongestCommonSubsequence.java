@@ -1,4 +1,4 @@
-package DynamicPrograming;
+package DynamicProgramming;
 
 public class LongestCommonSubsequence {
     public static String findLCS(String s1, String s2) {

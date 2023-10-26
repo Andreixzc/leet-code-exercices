@@ -1,4 +1,4 @@
-package DynamicPrograming;
+package DynamicProgramming;
 
 public class Saco {
     static int[] valores = {6, 10, 12}; // Valores dos objetos

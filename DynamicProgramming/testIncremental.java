@@ -1,4 +1,4 @@
-package DynamicPrograming;
+package DynamicProgramming;
 
 class Incremental {
     private static Incremental instance;

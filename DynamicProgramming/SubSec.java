@@ -1,4 +1,4 @@
-package DynamicPrograming;
+package DynamicProgramming;
 
 public class SubSec {
 
