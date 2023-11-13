@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Produc {
+public class ProductSuggest {
 
     public static void main(String[] args) {
         String word = "mouse";
