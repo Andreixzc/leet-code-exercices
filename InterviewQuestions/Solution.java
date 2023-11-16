@@ -36,8 +36,6 @@ public class Solution {
 
         long startTime = System.currentTimeMillis();
 
-        String phone = findPersonsPhoneNumberByPersonsName(phoneBook, 0, phoneBook.length - 1, searchName);
-
         long elapsedTime = System.currentTimeMillis() - startTime;
 
         System.out.println("Tempo decorrido: " + elapsedTime + " milissegundos");
