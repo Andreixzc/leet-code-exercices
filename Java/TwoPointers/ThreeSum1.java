@@ -10,9 +10,9 @@ import java.util.Set;
 public class ThreeSum1 {
     public static void main(String[] args) {
         int[] nums = { -1, 0, 1, 2, -1, -4 };
-        System.out.println(nums[nums.length-1]);
+        System.out.println(nums[nums.length - 1]);
         threeSum(nums);
-        
+
     }
 
     public static List<List<Integer>> threeSumBruteForce(int[] nums) {
@@ -38,11 +38,42 @@ public class ThreeSum1 {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
         Arrays.sort(nums);
-        System.out.println(Arrays.toString(nums));
-        int i = 0;
-        int j = nums.length - 2;
-        int current = nums.length-1;
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+
+            int j = i + 1;
+            int k = nums.length - 1;
+
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+
+                if (sum == 0) {
+                    List<Integer> triplet = new ArrayList<>();
+                    triplet.add(nums[i]);
+                    triplet.add(nums[j]);
+                    triplet.add(nums[k]);
+                    ans.add(triplet);
+                    while (j < k && nums[j] == nums[j + 1]) {
+                        j++;
+                    }
+                    while (j < k && nums[k] == nums[k - 1]) {
+                        k--;
+                    }
+
+                    j++;
+                    k--;
+                } else if (sum < 0) {
+                    j++;
+                } else {
+                    k--;
+                }
+            }
+        }
 
         return ans;
     }
+
 }
